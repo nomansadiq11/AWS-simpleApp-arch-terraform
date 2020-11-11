@@ -11,3 +11,17 @@ variable "FileBucketName" {
   default = "qmsfilesserver"
 
 }
+
+variable "tagEnvironment" {
+  type ="string"
+  description = "string"
+  default = "Production"
+
+}
+
+variable "tagProject" {
+  type ="string"
+  description = "string"
+  default = "QMS"
+
+}

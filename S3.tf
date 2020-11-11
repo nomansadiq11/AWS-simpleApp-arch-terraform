@@ -13,9 +13,9 @@ resource "aws_s3_bucket" "WebSiteBucketName" {
   }
 
   tags = {
-    Name        = "QMS Web frontend"
-    Environment = "Production"
-    Project = "QMS"
+    Name = "QMS Frontend"
+    Environment = "${var.tagEnvironment}"
+    Project = "${var.tagProject}"
   }
 }
 
@@ -28,8 +28,8 @@ resource "aws_s3_bucket" "FileBucketName" {
   acl    = "private"
 
   tags = {
-    Name        = "QMS Files"
-    Environment = "Production"
-    Project = "QMS"
+    Name = "QMS Files Server"
+    Environment = "${var.tagEnvironment}"
+    Project = "${var.tagProject}"
   }
 }
