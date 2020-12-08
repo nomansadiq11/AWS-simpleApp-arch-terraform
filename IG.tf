@@ -6,8 +6,8 @@ resource "aws_internet_gateway" "QMS_IG" {
   vpc_id = aws_vpc.QMSVPC.id
 
   tags = {
-    Name = "QMS-Internet-Gateway"
+    Name        = "QMS-Internet-Gateway"
     Environment = "${var.tagEnvironment}"
-    Project = "${var.tagProject}"
+    Project     = "${var.tagProject}"
   }
 }
