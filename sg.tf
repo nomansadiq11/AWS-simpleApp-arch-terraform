@@ -54,6 +54,13 @@ resource "aws_security_group" "QMS-web-sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+tags = {
+    Name        = "QMS-Web-Server-sg"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
+  }
+
 }
 
 
@@ -86,6 +93,13 @@ resource "aws_security_group" "QMS-db-sg" {
   #   protocol    = "-1"
   #   cidr_blocks = ["0.0.0.0/0"]
   # }
+
+tags = {
+    Name        = "QMS-db-server-sg"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
+  }
+
 }
 
 
@@ -118,6 +132,14 @@ resource "aws_security_group" "QMS-BH-SG" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name        = "QMS-bastion-host-sg"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
+  }
+
+
 }
 
 # Creating security group for MySQL Bastion Host Access
@@ -150,5 +172,11 @@ resource "aws_security_group" "DB-SG-SSH" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name        = "QMS-db-ssh-sg"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
   }
 }
