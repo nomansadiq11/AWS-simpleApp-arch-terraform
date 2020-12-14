@@ -1,27 +1,27 @@
 variable "WebSiteBucketName" {
-  type ="string"
+  type        = string
   description = "string"
-  default = "qmsfrontend"
+  default     = "qmsfrontend"
 
 }
 
 variable "FileBucketName" {
-  type ="string"
+  type        = string
   description = "string"
-  default = "qmsfilesserver"
+  default     = "qmsfilesserver"
 
 }
 
 variable "tagEnvironment" {
-  type ="string"
+  type        = string
   description = "string"
-  default = "Production"
+  default     = "Production"
 
 }
 
 variable "tagProject" {
-  type ="string"
+  type        = string
   description = "string"
-  default = "QMS"
+  default     = "QMS"
 
 }

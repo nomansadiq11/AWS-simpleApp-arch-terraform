@@ -2,9 +2,9 @@
 # Bucket for Frontend website
 
 resource "aws_s3_bucket" "WebSiteBucketName" {
-  bucket = "${var.WebSiteBucketName}"
+  bucket = var.WebSiteBucketName
   acl    = "public-read"
-  policy = "${file("s3bucketpolicy.json")}"
+  policy = file("s3bucketpolicy.json")
 
   website {
     index_document = "index.html"
@@ -13,9 +13,9 @@ resource "aws_s3_bucket" "WebSiteBucketName" {
   }
 
   tags = {
-    Name = "QMS Frontend"
+    Name        = "QMS Frontend"
     Environment = "${var.tagEnvironment}"
-    Project = "${var.tagProject}"
+    Project     = "${var.tagProject}"
   }
 }
 
@@ -24,12 +24,12 @@ resource "aws_s3_bucket" "WebSiteBucketName" {
 # Bucket for File Server 
 
 resource "aws_s3_bucket" "FileBucketName" {
-  bucket = "${var.FileBucketName}"
+  bucket = var.FileBucketName
   acl    = "private"
 
   tags = {
-    Name = "QMS Files Server"
+    Name        = "QMS Files Server"
     Environment = "${var.tagEnvironment}"
-    Project = "${var.tagProject}"
+    Project     = "${var.tagProject}"
   }
 }

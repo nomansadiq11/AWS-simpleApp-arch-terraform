@@ -1,4 +1,4 @@
-resource "aws_internet_gateway" "QMS_internet_gateway" {
+resource "aws_internet_gateway" "QMS_IG" {
   depends_on = [
     aws_vpc.QMSVPC,
   ]
@@ -6,6 +6,8 @@ resource "aws_internet_gateway" "QMS_internet_gateway" {
   vpc_id = aws_vpc.QMSVPC.id
 
   tags = {
-    Name = "internet-gateway"
+    Name        = "QMS-Internet-Gateway"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
   }
 }
