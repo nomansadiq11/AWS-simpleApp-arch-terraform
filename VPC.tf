@@ -22,6 +22,17 @@ resource "aws_subnet" "PrivateSubnet" {
   }
 }
 
+resource "aws_subnet" "PrivateSubnet2" {
+  vpc_id     = aws_vpc.QMSVPC.id
+  cidr_block = "172.11.2.0/24"
+
+  tags = {
+    Name        = "QMS-Private-Subnet2"
+    Environment = "${var.tagEnvironment}"
+    Project     = "${var.tagProject}"
+  }
+}
+
 
 
 # Public Subnet 
